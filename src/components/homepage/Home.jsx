@@ -1,7 +1,9 @@
+import Banner from "../pageComponents/banner/Banner";
+
 const Home = () => {
   return (
     <div>
-      <h2>this is homage page</h2>
+      <Banner></Banner>
     </div>
   );
 };
