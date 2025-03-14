@@ -48,7 +48,19 @@ const Banner = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20 z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20 z-10 flex items-center">
+        <div className="ml-[100px] space-y-5">
+          <h2 className="text-5xl font-bold text-green-600 flex flex-col">
+            HotelNest – A Peaceful{" "}
+            <span className="text-blue-600">Environment for Studying</span>
+          </h2>
+          <p className="text-white capitalize">
+            Experience a safe, friendly, and supportive environment <br />{" "}
+            designed for students to grow, learn, and thrive.
+          </p>
+          <button className="btn btn-primary">explore more</button>
+        </div>
+      </div>
     </div>
   );
 };
