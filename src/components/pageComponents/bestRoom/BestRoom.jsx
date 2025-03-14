@@ -1,45 +1,41 @@
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-
-import { FreeMode, Navigation, Pagination } from "swiper/modules";
+import { FreeMode, Pagination, Navigation } from "swiper/modules";
 import RoomCard from "../roomcard/RoomCard";
 import { useEffect, useState } from "react";
+
 const BestRoom = () => {
   const [card, setCard] = useState([]);
+
   useEffect(() => {
     fetch("room.json")
       .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        setCard(result);
-      });
+      .then((result) => setCard(result));
   }, []);
-  console.log(card);
 
   return (
-    <Swiper
-      slidesPerView={4}
-      autoplay={true}
-      spaceBetween={10}
-      freeMode={true}
-      pagination={{
-        clickable: true,
-        el: null,
-      }}
-      modules={[FreeMode, Pagination, Navigation]}
-      className="mySwiper"
-    >
-      {card?.map((item) => (
-        <SwiperSlide key={item.id}>
-          <RoomCard item={item}></RoomCard>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className="w-full px-4 sm:p-0">
+      <Swiper
+        spaceBetween={10}
+        freeMode={true}
+        pagination={{ clickable: true, el: null }}
+        modules={[FreeMode, Pagination, Navigation]}
+        breakpoints={{
+          320: { slidesPerView: 1 },
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 },
+        }}
+      >
+        {card?.map((item) => (
+          <SwiperSlide key={item.id}>
+            <RoomCard item={item} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 };
 

@@ -9,7 +9,7 @@
       { "seat_number": 2, "status": "Occupied" },
       { "seat_number": 3, "status": "Available" }
     ],
-    "image": "https://example.com/images/single-room.jpg"
+    "image": "https://i.ibb.co.com/Pzvbk0yd/images-6.jpg"
   },
   {
     "room_id": 102,
@@ -21,7 +21,7 @@
       { "seat_number": 2, "status": "Occupied" },
       { "seat_number": 3, "status": "Available" }
     ],
-    "image": "https://example.com/images/double-room.jpg"
+    "image": "https://i.ibb.co.com/Pzvbk0yd/images-6.jpg"
   },
   {
     "room_id": 103,
@@ -33,7 +33,7 @@
       { "seat_number": 2, "status": "Available" },
       { "seat_number": 3, "status": "Occupied" }
     ],
-    "image": "https://example.com/images/triple-room.jpg"
+    "image": "https://i.ibb.co.com/Pzvbk0yd/images-6.jpg"
   },
   {
     "room_id": 104,
@@ -45,7 +45,7 @@
       { "seat_number": 2, "status": "Available" },
       { "seat_number": 3, "status": "Available" }
     ],
-    "image": "https://example.com/images/suite-room.jpg"
+    "image": "https://i.ibb.co.com/Pzvbk0yd/images-6.jpg"
   },
   {
     "room_id": 105,
@@ -57,186 +57,6 @@
       { "seat_number": 2, "status": "Available" },
       { "seat_number": 3, "status": "Available" }
     ],
-    "image": "https://example.com/images/family-room.jpg"
-  },
-  {
-    "room_id": 106,
-    "price": 85,
-    "status": "Available",
-    "rating": 4.1,
-    "seats": [
-      { "seat_number": 1, "status": "Available" },
-      { "seat_number": 2, "status": "Occupied" },
-      { "seat_number": 3, "status": "Available" }
-    ],
-    "image": "https://example.com/images/room-6.jpg"
-  },
-  {
-    "room_id": 107,
-    "price": 95,
-    "status": "Occupied",
-    "rating": 4.6,
-    "seats": [
-      { "seat_number": 1, "status": "Available" },
-      { "seat_number": 2, "status": "Occupied" },
-      { "seat_number": 3, "status": "Available" }
-    ],
-    "image": "https://example.com/images/room-7.jpg"
-  },
-  {
-    "room_id": 108,
-    "price": 110,
-    "status": "Available",
-    "rating": 4.3,
-    "seats": [
-      { "seat_number": 1, "status": "Occupied" },
-      { "seat_number": 2, "status": "Available" },
-      { "seat_number": 3, "status": "Available" }
-    ],
-    "image": "https://example.com/images/room-8.jpg"
-  },
-  {
-    "room_id": 109,
-    "price": 125,
-    "status": "Available",
-    "rating": 4.9,
-    "seats": [
-      { "seat_number": 1, "status": "Available" },
-      { "seat_number": 2, "status": "Occupied" },
-      { "seat_number": 3, "status": "Available" }
-    ],
-    "image": "https://example.com/images/room-9.jpg"
-  },
-  {
-    "room_id": 110,
-    "price": 80,
-    "status": "Occupied",
-    "rating": 4.4,
-    "seats": [
-      { "seat_number": 1, "status": "Occupied" },
-      { "seat_number": 2, "status": "Available" },
-      { "seat_number": 3, "status": "Available" }
-    ],
-    "image": "https://example.com/images/room-10.jpg"
-  },
-  {
-    "room_id": 111,
-    "price": 65,
-    "status": "Under Maintenance",
-    "rating": 4.0,
-    "seats": [
-      { "seat_number": 1, "status": "Available" },
-      { "seat_number": 2, "status": "Available" },
-      { "seat_number": 3, "status": "Occupied" }
-    ],
-    "image": "https://example.com/images/room-11.jpg"
-  },
-  {
-    "room_id": 112,
-    "price": 150,
-    "status": "Available",
-    "rating": 4.7,
-    "seats": [
-      { "seat_number": 1, "status": "Occupied" },
-      { "seat_number": 2, "status": "Available" },
-      { "seat_number": 3, "status": "Available" }
-    ],
-    "image": "https://example.com/images/room-12.jpg"
-  },
-  {
-    "room_id": 113,
-    "price": 115,
-    "status": "Available",
-    "rating": 4.8,
-    "seats": [
-      { "seat_number": 1, "status": "Available" },
-      { "seat_number": 2, "status": "Occupied" },
-      { "seat_number": 3, "status": "Occupied" }
-    ],
-    "image": "https://example.com/images/room-13.jpg"
-  },
-  {
-    "room_id": 114,
-    "price": 90,
-    "status": "Occupied",
-    "rating": 4.2,
-    "seats": [
-      { "seat_number": 1, "status": "Available" },
-      { "seat_number": 2, "status": "Occupied" },
-      { "seat_number": 3, "status": "Available" }
-    ],
-    "image": "https://example.com/images/room-14.jpg"
-  },
-  {
-    "room_id": 115,
-    "price": 95,
-    "status": "Available",
-    "rating": 4.6,
-    "seats": [
-      { "seat_number": 1, "status": "Occupied" },
-      { "seat_number": 2, "status": "Available" },
-      { "seat_number": 3, "status": "Occupied" }
-    ],
-    "image": "https://example.com/images/room-15.jpg"
-  },
-  {
-    "room_id": 116,
-    "price": 100,
-    "status": "Under Maintenance",
-    "rating": 4.3,
-    "seats": [
-      { "seat_number": 1, "status": "Available" },
-      { "seat_number": 2, "status": "Available" },
-      { "seat_number": 3, "status": "Occupied" }
-    ],
-    "image": "https://example.com/images/room-16.jpg"
-  },
-  {
-    "room_id": 117,
-    "price": 130,
-    "status": "Available",
-    "rating": 4.4,
-    "seats": [
-      { "seat_number": 1, "status": "Occupied" },
-      { "seat_number": 2, "status": "Available" },
-      { "seat_number": 3, "status": "Available" }
-    ],
-    "image": "https://example.com/images/room-17.jpg"
-  },
-  {
-    "room_id": 118,
-    "price": 120,
-    "status": "Occupied",
-    "rating": 4.2,
-    "seats": [
-      { "seat_number": 1, "status": "Occupied" },
-      { "seat_number": 2, "status": "Available" },
-      { "seat_number": 3, "status": "Available" }
-    ],
-    "image": "https://example.com/images/room-18.jpg"
-  },
-  {
-    "room_id": 119,
-    "price": 75,
-    "status": "Available",
-    "rating": 4.1,
-    "seats": [
-      { "seat_number": 1, "status": "Occupied" },
-      { "seat_number": 2, "status": "Available" },
-      { "seat_number": 3, "status": "Occupied" }
-    ],
-    "image": "https://example.com/images/room-19.jpg"
-  },
-  {
-    "room_id": 120,
-    "price": 85,
-    "status": "Available",
-    "rating": 4.3,
-    "seats": [
-      { "seat_number": 1, "status": "Available" },
-      { "seat_number": 2, "status": "Occupied" },
-      { "seat_number": 3, "status": "Available" }
-    ],
-    "image": "https://example.com/images/room-20.jpg"
+    "image": "https://i.ibb.co.com/Pzvbk0yd/images-6.jpg"
   }
 ]

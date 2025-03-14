@@ -11,7 +11,9 @@ const Navbar = () => {
       <div className="flex justify-between h-[60px] sm:bg-black/10 items-center p-4 rounded-lg">
         <div className="flex items-center gap-3">
           <img className="w-[50px] h-[50px]" src={logo} alt="" />
-          <h2 className="text-3xl text-[#6885fa] font-bold">hotelNest</h2>
+          <h2 className="text-3xl text-[#6885fa] font-bold hidden sm:block">
+            hotelNest
+          </h2>
         </div>
 
         <div className="sm:hidden">
