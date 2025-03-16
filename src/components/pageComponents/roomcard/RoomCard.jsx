@@ -3,11 +3,9 @@ import { IoBedOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const RoomCard = ({ item }) => {
-  const { price, image, rating, room_id } = item;
-  console.log(price, image, rating, room_id);
+  const { price, image, rating, _id } = item;
+  console.log(price, image, rating, _id);
   const set = item.seats;
-  // console.log(set);
-
   return (
     <div>
       <div>
@@ -36,8 +34,7 @@ const RoomCard = ({ item }) => {
               <FaDollarSign />
               <span> {price}</span>
             </h2>
-            <Link to={`/roomdetails/${room_id}`}>
-              {" "}
+            <Link to={`/roomdetails/${_id}`}>
               <button className="btn btn-primary">explore</button>
             </Link>
           </div>

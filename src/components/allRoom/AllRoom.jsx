@@ -1,14 +1,10 @@
-import { useEffect, useState } from "react";
 import RoomCard from "../pageComponents/roomcard/RoomCard";
+import UserRoom from "../hooks/useRoom/UserRoom";
 
 const AllRoom = () => {
-  const [card, setCard] = useState([]);
+  const [roomData] = UserRoom();
+  console.log(roomData);
 
-  useEffect(() => {
-    fetch("room.json")
-      .then((res) => res.json())
-      .then((result) => setCard(result));
-  }, []);
   return (
     <div>
       <div className=" h-[500px] flex flex-col items-center justify-center ">
@@ -28,7 +24,7 @@ const AllRoom = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-        {card.map((item) => (
+        {roomData?.map((item) => (
           <RoomCard item={item} key={item.room_id}></RoomCard>
         ))}
       </div>
