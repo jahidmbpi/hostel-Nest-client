@@ -3,6 +3,8 @@ import Roots from "../layOut/Roots";
 import Home from "../homepage/Home";
 import RoomDetails from "../pageComponents/roomDetails/RoomDetails";
 import AllRoom from "../allRoom/AllRoom";
+import Register from "../athentication/register/Register";
+import LogIn from "../athentication/login/LogIn";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ export const router = createBrowserRouter([
         path: "/allroom",
         element: <AllRoom></AllRoom>,
       },
+      {
+        path:'/register',
+        element:<Register></Register>
+      }
+      ,{
+        path:"/login",
+        element:<LogIn></LogIn>
+      }
     ],
   },
 ]);

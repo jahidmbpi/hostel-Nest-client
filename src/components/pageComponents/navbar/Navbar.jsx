@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import logo from "../../../assets/vector-education-logo_779267-2080.avif";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -40,6 +41,8 @@ const Navbar = () => {
             <li className="p-2">About</li>
             <li className="p-2">Services</li>
             <li className="p-2">Contact</li>
+           <Link to='/register'> <li className="p-2">register</li> </Link>
+           <Link to="/login"> <li className="p-2">log in</li></Link>
           </ul>
         </div>
       </div>
