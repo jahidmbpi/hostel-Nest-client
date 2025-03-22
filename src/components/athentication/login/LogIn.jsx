@@ -23,6 +23,7 @@ const LogIn = () => {
   return (
     <div className="min-h-screen">
       <div className="mt-16">
+        <h2>please log in </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="fieldset">
             <legend className="fieldset-legend">Email</legend>
