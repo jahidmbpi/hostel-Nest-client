@@ -7,7 +7,7 @@ const AllRoom = () => {
 
   return (
     <div>
-      <div className=" h-[500px] flex flex-col items-center justify-center ">
+      <div className=" h-[500px] flex flex-col items-center justify-center">
         <div className="text-center space-y-5">
           <h2 className="text-4xl font-bold capitalize">
             Succeed with HotelNest

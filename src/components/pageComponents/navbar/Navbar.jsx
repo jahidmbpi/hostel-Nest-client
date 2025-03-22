@@ -8,7 +8,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="mx-auto w-full absolute z-30 sm:max-w-7xl">
+    <div className="mx-auto w-full fixed z-30 sm:max-w-7xl">
       <div className="flex justify-between h-[60px] sm:bg-black/10 items-center p-4 rounded-lg">
         <div className="flex items-center gap-3">
           <img className="w-[50px] h-[50px]" src={logo} alt="" />
@@ -41,8 +41,14 @@ const Navbar = () => {
             <li className="p-2">About</li>
             <li className="p-2">Services</li>
             <li className="p-2">Contact</li>
-           <Link to='/register'> <li className="p-2">register</li> </Link>
-           <Link to="/login"> <li className="p-2">log in</li></Link>
+            <Link to="/register">
+              {" "}
+              <li className="p-2">register</li>{" "}
+            </Link>
+            <Link to="/login">
+              {" "}
+              <li className="p-2">log in</li>
+            </Link>
           </ul>
         </div>
       </div>
