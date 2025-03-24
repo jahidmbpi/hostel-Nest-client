@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import logo from "../../../assets/vector-education-logo_779267-2080.avif";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/Provider";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { logOut, user } = useContext(AuthContext);
+  const handelLogOut = () => {
+    logOut()
+      .then(() => {
+        console.log("log out success");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  console.log(user);
 
   return (
     <div className="mx-auto w-full fixed z-30 sm:max-w-7xl">
@@ -37,7 +49,9 @@ const Navbar = () => {
           }`}
         >
           <ul className="flex flex-col sm:flex-row sm:space-x-4 list-none text-black sm:text-white  p-4">
-            <li className="p-2">Home</li>
+            <Link to="/">
+              <li className="p-2">Home</li>
+            </Link>
             <li className="p-2">About</li>
             <li className="p-2">Services</li>
             <li className="p-2">Contact</li>
@@ -49,6 +63,7 @@ const Navbar = () => {
               {" "}
               <li className="p-2">log in</li>
             </Link>
+            <li onClick={handelLogOut}>log out</li>
           </ul>
         </div>
       </div>

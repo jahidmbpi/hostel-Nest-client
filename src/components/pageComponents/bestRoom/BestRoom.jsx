@@ -4,17 +4,10 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { FreeMode, Pagination, Navigation } from "swiper/modules";
 import RoomCard from "../roomcard/RoomCard";
-import { useEffect, useState } from "react";
+import UserRoom from "../../hooks/useRoom/UserRoom";
 
 const BestRoom = () => {
-  const [card, setCard] = useState([]);
-
-  useEffect(() => {
-    fetch("room.json")
-      .then((res) => res.json())
-      .then((result) => setCard(result));
-  }, []);
-
+  const [roomData] = UserRoom();
   return (
     <div className="w-full px-4 sm:p-0">
       <Swiper
@@ -29,7 +22,7 @@ const BestRoom = () => {
           1280: { slidesPerView: 4 },
         }}
       >
-        {card?.map((item) => (
+        {roomData?.map((item) => (
           <SwiperSlide key={item.id}>
             <RoomCard item={item} />
           </SwiperSlide>

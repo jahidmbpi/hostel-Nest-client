@@ -3,9 +3,11 @@ import { IoBedOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const RoomCard = ({ item }) => {
+  console.log(item);
   const { price, image, rating, _id } = item;
   console.log(price, image, rating, _id);
   const set = item.seats;
+  console.log(_id);
   return (
     <div>
       <div>
