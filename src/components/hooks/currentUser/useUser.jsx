@@ -6,27 +6,28 @@ import { AuthContext } from "../../provider/Provider";
 const useUser = () => {
   const { user } = useContext(AuthContext);
 
+  const fetchUser = async () => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:5000/user?email=${user.email}`
+      );
+      return data;
+    } catch (error) {
+      throw new Error(
+        error.response?.data?.message || "Failed to fetch user data"
+      );
+    }
+  };
+
   const {
-    data: currentUser = [],
+    data: currentUser = null,
     isLoading,
     error,
   } = useQuery({
     queryKey: ["currentUser", user?.email],
-    queryFn: async () => {
-      if (!user?.email) {
-        throw new Error("User email is not available");
-      }
-      const result = await axios.get(
-        `http://localhost:5000/user?email=${user.email}`
-      );
-      return result.data;
-    },
+    queryFn: fetchUser,
     enabled: !!user?.email,
   });
-
-  if (!user?.email) {
-    return [[], true, null];
-  }
 
   return { currentUser, isLoading, error };
 };

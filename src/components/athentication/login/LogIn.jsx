@@ -13,7 +13,7 @@ const LogIn = () => {
       .then((res) => {
         const user = res.user;
         console.log(user);
-        console.log("user singh up succesfully");
+        console.log("user singh in succesfully");
         reset();
       })
       .catch((error) => {

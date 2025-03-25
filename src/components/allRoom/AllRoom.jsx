@@ -1,14 +1,14 @@
 import RoomCard from "../pageComponents/roomcard/RoomCard";
 import UserRoom from "../hooks/useRoom/UserRoom";
-import useUser from "../hooks/currentUser/useUser";
+// import useUser from "../hooks/currentUser/useUser";
 
 import { AuthContext } from "../provider/Provider";
 
 const AllRoom = () => {
   const [roomData] = UserRoom();
 
-  const [currentUser] = useUser();
-  console.log("get current user", currentUser);
+  // const [currentUser] = useUser();
+  // console.log("get current user", currentUser);
   console.log(roomData);
 
   return (
