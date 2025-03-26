@@ -5,6 +5,7 @@ import RoomDetails from "../pageComponents/roomDetails/RoomDetails";
 import AllRoom from "../allRoom/AllRoom";
 import Register from "../athentication/register/Register";
 import LogIn from "../athentication/login/LogIn";
+import UserProfile from "../pageComponents/roomDetails/userProfile/UserProfile";
 
 export const router = createBrowserRouter([
   {
@@ -24,13 +25,17 @@ export const router = createBrowserRouter([
         element: <AllRoom></AllRoom>,
       },
       {
-        path:'/register',
-        element:<Register></Register>
-      }
-      ,{
-        path:"/login",
-        element:<LogIn></LogIn>
-      }
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/login",
+        element: <LogIn></LogIn>,
+      },
+      {
+        path: "/userprofile/:id",
+        element: <UserProfile></UserProfile>,
+      },
     ],
   },
 ]);
