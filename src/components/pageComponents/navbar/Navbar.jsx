@@ -4,10 +4,14 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import logo from "../../../assets/vector-education-logo_779267-2080.avif";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/Provider";
+import useUser from "../../hooks/currentUser/useUser";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [jahid, setJahid] = useState(false);
   const { logOut, user } = useContext(AuthContext);
+  console.log(user);
+  const { currentUser } = useUser();
   const handelLogOut = () => {
     logOut()
       .then(() => {
@@ -17,7 +21,6 @@ const Navbar = () => {
         console.log(error);
       });
   };
-  console.log(user);
 
   return (
     <div className="mx-auto w-full fixed z-30 sm:max-w-7xl">
@@ -44,26 +47,62 @@ const Navbar = () => {
         </div>
 
         <div
-          className={`absolute top-[50px] left-0 w-full bg-gray-300 transition-transform duration-500 sm:static sm:bg-transparent  sm:w-auto sm:flex ${
-            open ? "translate-x-0" : "-translate-x-full sm:-translate-x-0 "
+          className={`absolute top-[50px] z-10 left-0 w-full bg-gray-300 transition-transform duration-500 sm:static sm:bg-transparent sm:w-auto sm:flex ${
+            open ? "translate-x-0" : "-translate-x-full sm:-translate-x-0"
           }`}
         >
-          <ul className="flex flex-col sm:flex-row sm:space-x-4 list-none text-black sm:text-white  p-4">
+          <ul className="flex flex-col sm:flex-row sm:space-x-4 list-none text-black sm:text-white p-4">
             <Link to="/">
               <li className="p-2">Home</li>
             </Link>
             <li className="p-2">About</li>
             <li className="p-2">Services</li>
             <li className="p-2">Contact</li>
-            <Link to="/register">
-              {" "}
-              <li className="p-2">register</li>{" "}
-            </Link>
-            <Link to="/login">
-              {" "}
-              <li className="p-2">log in</li>
-            </Link>
-            <li onClick={handelLogOut}>log out</li>
+
+            <div className="relative">
+              <div
+                onClick={() => setJahid(!jahid)}
+                className="ring-primary ring-offset-base-100 w-[45px] h-[45px] rounded-full ring ring-offset-2 cursor-pointer"
+              >
+                {currentUser ? (
+                  <img
+                    className="rounded-full w-full avatar"
+                    src={currentUser.image}
+                  />
+                ) : (
+                  <img
+                    className="rounded-full avatar"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  />
+                )}
+              </div>
+
+              {/* Profile Dropdown */}
+              {jahid && (
+                <div className="absolute top-10 right-0 bg-white p-4 rounded-lg shadow-lg w-[200px] z-10">
+                  {user ? (
+                    <div>
+                      <li
+                        className="text-black cursor-pointer"
+                        onClick={handelLogOut}
+                      >
+                        Log out
+                      </li>
+                      <li className="text-black">seting </li>
+                    </div>
+                  ) : (
+                    <div>
+                      <Link to="/login">
+                        <li className="p-2 text-black">Log in</li>
+                      </Link>
+                      <Link to="/register">
+                        <li className="p-2 text-black">Register</li>
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
           </ul>
         </div>
       </div>
