@@ -12,6 +12,7 @@ const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
   console.log(user);
   const { currentUser } = useUser();
+  console.log(currentUser?.role);
   const handelLogOut = () => {
     logOut()
       .then(() => {
@@ -24,7 +25,7 @@ const Navbar = () => {
 
   return (
     <div className="mx-auto w-full fixed z-30 sm:max-w-7xl">
-      <div className="flex justify-between h-[60px] sm:bg-black/10 items-center p-4 rounded-lg">
+      <div className="flex justify-between h-[60px] sm:bg-black/10 items-center rounded-lg">
         <div className="flex items-center gap-3">
           <img className="w-[50px] h-[50px]" src={logo} alt="" />
           <h2 className="text-3xl text-[#6885fa] font-bold hidden sm:block">
@@ -55,9 +56,26 @@ const Navbar = () => {
             <Link to="/">
               <li className="p-2">Home</li>
             </Link>
-            <li className="p-2">About</li>
-            <li className="p-2">Services</li>
-            <li className="p-2">Contact</li>
+            <Link to="/about" className="p-2">
+              About
+            </Link>
+            <Link className="p-2">Services</Link>
+            <Link to="/contact" className="p-2">
+              Contact
+            </Link>
+            <Link className="p-2">notice</Link>
+            {user && (
+              <Link
+                to={
+                  currentUser?.role === "admin"
+                    ? "/deshbord/adminhome"
+                    : "/deshbord/userhome"
+                }
+                className="p-2 text-white"
+              >
+                deshbord
+              </Link>
+            )}
 
             <div className="relative">
               <div
@@ -66,12 +84,12 @@ const Navbar = () => {
               >
                 {currentUser ? (
                   <img
-                    className="rounded-full w-full avatar"
+                    className="rounded-full w-[45px] h-[45px] avatar"
                     src={currentUser.image}
                   />
                 ) : (
                   <img
-                    className="rounded-full avatar"
+                    className="rounded-full w-[45px] h-[45px]"
                     src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
                   />
                 )}

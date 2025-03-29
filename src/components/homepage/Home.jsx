@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Banner from "../pageComponents/banner/Banner";
 import BestRoom from "../pageComponents/bestRoom/BestRoom";
 import UserRoom from "../hooks/useRoom/UserRoom";
+import MeetOurClient from "../meetOurClient/MeetOurClient";
 
 const Home = () => {
   const [roomData] = UserRoom();
@@ -15,6 +16,9 @@ const Home = () => {
         </Link>
       </div>
       <BestRoom></BestRoom>
+      <div className="md:mt-[100px]">
+        <MeetOurClient></MeetOurClient>
+      </div>
     </div>
   );
 };

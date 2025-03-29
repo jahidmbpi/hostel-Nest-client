@@ -2,10 +2,12 @@ import { useContext } from "react";
 
 import { AuthContext } from "../../provider/Provider";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const { singIn } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
+  const navigate = useNavigate();
   console.log(singIn);
   const onSubmit = (data) => {
     console.log(data);
@@ -14,6 +16,7 @@ const LogIn = () => {
         const user = res.user;
         console.log(user);
         console.log("user singh in succesfully");
+        navigate("/");
         reset();
       })
       .catch((error) => {

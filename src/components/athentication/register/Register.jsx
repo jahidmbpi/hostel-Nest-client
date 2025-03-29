@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../provider/Provider";
 import axios from "axios";
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_API_KEY;
 console.log(image_hosting_key);
@@ -11,6 +12,7 @@ const Register = () => {
   const { singUp } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const onSubmit = async (data) => {
     console.log(data);
     const imageFile = { image: data.image[0] };
@@ -20,6 +22,7 @@ const Register = () => {
         console.log(loading);
         console.log(res.data);
         console.log("user singh up succesfully");
+
         axios
           .post(image_hosting_url, imageFile, {
             method: "POST",
@@ -43,6 +46,7 @@ const Register = () => {
               console.log(loading);
             });
           });
+        navigate("/register");
       })
       .catch((error) => {
         console.log(error);

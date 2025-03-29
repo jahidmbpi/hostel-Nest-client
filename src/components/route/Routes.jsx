@@ -6,6 +6,11 @@ import AllRoom from "../allRoom/AllRoom";
 import Register from "../athentication/register/Register";
 import LogIn from "../athentication/login/LogIn";
 import UserProfile from "../pageComponents/roomDetails/userProfile/UserProfile";
+import Deshbord from "../layOut/Deshbord";
+import UserHome from "../deshbordComponents/userHome/UserHome";
+import AdminHome from "../deshbordComponents/adminHome/AdminHome";
+import About from "../about/About";
+import Contact from "../contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +40,28 @@ export const router = createBrowserRouter([
       {
         path: "/userprofile/:id",
         element: <UserProfile></UserProfile>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "/deshbord",
+        element: <Deshbord></Deshbord>,
+        children: [
+          {
+            path: "userhome",
+            element: <UserHome></UserHome>,
+          },
+          {
+            path: "adminhome",
+            element: <AdminHome></AdminHome>,
+          },
+        ],
       },
     ],
   },
