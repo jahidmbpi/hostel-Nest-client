@@ -1,12 +1,18 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import useUser from "../../hooks/currentUser/useUser";
 const AddNotice = () => {
   const { register, handleSubmit } = useForm();
+  const { currentUser } = useUser();
+  console.log(currentUser);
   const onSubmit = (data) => {
     const currentDateTime = new Date().toLocaleString();
     const updatedata = {
       ...data,
       date: currentDateTime,
+      name: currentUser.name,
+      role: currentUser.role,
+      photo: currentUser.image,
     };
 
     console.log(updatedata);
