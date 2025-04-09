@@ -6,14 +6,14 @@ const Deshbord = () => {
   console.log(currentUser);
   return (
     <div className="flex w-full">
-      <div className="w-[200px] min-h-screen bg-green-400">
+      <div className="w-[200px] min-h-screen border rounded-lg">
         {currentUser.role === "admin" ? (
-          <ul className="text-xl font-bold capitalize p-4 flex flex-col">
-            <Link to="/deshbord/userhome">admin Home</Link>
-            <Link to="/deshbord/userhome">admin Home</Link>
-            <Link to="/deshbord/userhome">admin Home</Link>
-            <Link to="/deshbord/userhome">admin Home</Link>
-            <Link to="/deshbord/userhome">admin Home</Link>
+          <ul className=" capitalize p-4 flex flex-col space-y-4">
+            <Link to="/deshbord/adminHome">admin Home</Link>
+            <Link to="/deshbord/adminHome">manage user</Link>
+            <Link to="/deshbord/adminAddNotice">add notice</Link>
+            <Link to="/deshbord/adminHome">manage emplaye</Link>
+            <Link to="/deshbord/adminHome">add rooms</Link>
           </ul>
         ) : (
           <ul className="text-xl font-bold capitalize p-4 flex flex-col">
@@ -38,7 +38,7 @@ const Deshbord = () => {
         </div>
       </div>
 
-      <div>
+      <div className="ml-4 w-full">
         <Outlet></Outlet>
       </div>
     </div>

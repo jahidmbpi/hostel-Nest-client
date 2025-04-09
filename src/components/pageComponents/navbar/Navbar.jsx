@@ -63,7 +63,9 @@ const Navbar = () => {
             <Link to="/contact" className="p-2">
               Contact
             </Link>
-            <Link className="p-2">notice</Link>
+            <Link to="/Notice" className="p-2">
+              notice
+            </Link>
             {user && (
               <Link
                 to={

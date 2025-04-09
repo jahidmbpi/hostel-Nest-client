@@ -11,6 +11,8 @@ import UserHome from "../deshbordComponents/userHome/UserHome";
 import AdminHome from "../deshbordComponents/adminHome/AdminHome";
 import About from "../about/About";
 import Contact from "../contact/Contact";
+import Notice from "../pageComponents/notice/Notice";
+import AddNotice from "../deshbordComponents/addNotice/AddNotice";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +52,10 @@ export const router = createBrowserRouter([
         element: <Contact></Contact>,
       },
       {
+        path: "/notice",
+        element: <Notice></Notice>,
+      },
+      {
         path: "/deshbord",
         element: <Deshbord></Deshbord>,
         children: [
@@ -60,6 +66,10 @@ export const router = createBrowserRouter([
           {
             path: "adminhome",
             element: <AdminHome></AdminHome>,
+          },
+          {
+            path: "adminAddNotice",
+            element: <AddNotice></AddNotice>,
           },
         ],
       },
