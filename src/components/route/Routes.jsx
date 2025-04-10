@@ -13,6 +13,7 @@ import About from "../about/About";
 import Contact from "../contact/Contact";
 import Notice from "../pageComponents/notice/Notice";
 import AddNotice from "../deshbordComponents/addNotice/AddNotice";
+import NoticeCommentDetails from "../pageComponents/notice/noticeCommentDetails/NoticeCommentDetails";
 
 export const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
       {
         path: "/userprofile/:id",
         element: <UserProfile></UserProfile>,
+      },
+      {
+        path: "/notice/:id",
+        element: <NoticeCommentDetails></NoticeCommentDetails>,
       },
       {
         path: "/about",

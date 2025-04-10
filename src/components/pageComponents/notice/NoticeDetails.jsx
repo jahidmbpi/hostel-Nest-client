@@ -7,6 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 import useUser from "../../hooks/currentUser/useUser";
 import UseNotice from "../../hooks/notice/UseNotice";
+import { Link } from "react-router-dom";
 const NoticeDetails = ({ data }) => {
   const [comment, setComment] = useState(false);
   const { currentUser } = useUser();
@@ -61,7 +62,11 @@ const NoticeDetails = ({ data }) => {
           <div className="flex justify-between px-2">
             <p>10k react</p>
             <div className="flex gap-2">
-              <p className="underline cursor-pointer">{totalComments}comment</p>
+              <Link to={`/notice/${data._id}`}>
+                <p className="underline cursor-pointer">
+                  {totalComments}comment
+                </p>
+              </Link>
               <p>2shear</p>
             </div>
           </div>
@@ -89,6 +94,7 @@ const NoticeDetails = ({ data }) => {
             <div className="flex gap-2 items-center">
               <input
                 type="text"
+                required
                 name="comment"
                 placeholder="Enter your comment hear"
                 className="input input-ghost w-full"
