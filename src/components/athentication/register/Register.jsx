@@ -13,6 +13,7 @@ const Register = () => {
   const { register, handleSubmit } = useForm();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   const onSubmit = async (data) => {
     console.log(data);
     const imageFile = { image: data.image[0] };
@@ -20,7 +21,7 @@ const Register = () => {
     singUp(data.email, data.password)
       .then((res) => {
         console.log(loading);
-        console.log(res.data);
+        console.log(res.user);
         console.log("user singh up succesfully");
 
         axios
@@ -39,6 +40,10 @@ const Register = () => {
               name: data.name,
               email: data.email,
               image: result.data.data.display_url,
+              presentAddess: data.parasentAddress,
+              permanentAddress: data.permanentAddress,
+              dateOfBirth: data.dateOfBirth,
+              currentClass: data.currentClass,
             };
             axios.post("http://localhost:5000/user", userData).then((res) => {
               console.log(res.data);
@@ -54,35 +59,100 @@ const Register = () => {
   };
   return (
     <div className="min-h-screen">
-      <div className="mt-16">
-        <h2>please register</h2>
+      <div className="mt-16 w-full">
+        <h2 className="text-center text-4xl font-extrabold capitalize mb-5">
+          please register
+        </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="fieldset">
-            <legend className="fieldset-legend">Name</legend>
-            <input
-              {...register("name")}
-              type="text"
-              className="input"
-              placeholder="Type here"
-            />
-          </div>
-          <div className="fieldset">
-            <legend className="fieldset-legend">Email</legend>
-            <input
-              {...register("email")}
-              type="text"
-              className="input"
-              placeholder="email"
-            />
-          </div>
-          <div className="fieldset">
-            <legend className="fieldset-legend">Password</legend>
-            <input
-              {...register("password")}
-              type="password"
-              className="input"
-              placeholder="password"
-            />
+          <div className="flex w-full gap-4">
+            <div className="w-full">
+              <div className="fieldset">
+                <legend className="fieldset-legend">Name</legend>
+                <input
+                  {...register("name")}
+                  type="text"
+                  className="input w-full"
+                  placeholder="Type here"
+                />
+              </div>
+              <div className="fieldset">
+                <legend className="fieldset-legend">Email</legend>
+                <input
+                  {...register("email")}
+                  type="text"
+                  className="input w-full"
+                  placeholder="email"
+                />
+              </div>
+              <div className="fieldset">
+                <legend className="fieldset-legend">Password</legend>
+                <input
+                  {...register("password")}
+                  type="password"
+                  className="input w-full"
+                  placeholder="password"
+                />
+              </div>
+              <div className="fieldset">
+                <legend className="fieldset-legend">depertment</legend>
+                <select
+                  required
+                  {...register("depertment")}
+                  className="input w-full"
+                >
+                  <option value="">Select your dept</option>
+                  <option value="science">science</option>
+                  <option value="arts">arts</option>
+                  <option value="comurce">comurce</option>
+                </select>
+              </div>
+            </div>
+            <div className="w-full">
+              <div className="fieldset">
+                <legend className="fieldset-legend"> present address</legend>
+                <input
+                  {...register("parasentAddress")}
+                  type="text"
+                  className="input w-full"
+                  placeholder="enter your present address"
+                />
+              </div>
+              <div className="fieldset">
+                <legend className="fieldset-legend"> permanent address</legend>
+                <input
+                  {...register("permanentAddress")}
+                  type="text"
+                  className="input w-full"
+                  placeholder="enter your permanents address"
+                />
+              </div>
+              <div className="fieldset">
+                <legend className="fieldset-legend">date of birth</legend>
+                <input
+                  {...register("dateOfBirth")}
+                  type="date"
+                  className="input w-full"
+                  placeholder="enter your date of birth"
+                />
+              </div>
+              <div className="fieldset">
+                <legend className="fieldset-legend">Current Class</legend>
+                <select
+                  required
+                  {...register("currentClass")}
+                  className="input w-full"
+                >
+                  <option value="">Select your class</option>
+                  <option value="Class 6">Class 6</option>
+                  <option value="Class 7">Class 7</option>
+                  <option value="Class 8">Class 8</option>
+                  <option value="Class 9">Class 9</option>
+                  <option value="Class 10">Class 10</option>
+                  <option value="HSC 1st Year">HSC 1st Year</option>
+                  <option value="HSC 2nd Year">HSC 2nd Year</option>
+                </select>
+              </div>
+            </div>
           </div>
           <div>
             <input
@@ -92,7 +162,7 @@ const Register = () => {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary w-full mt-4">
             register
           </button>
         </form>
