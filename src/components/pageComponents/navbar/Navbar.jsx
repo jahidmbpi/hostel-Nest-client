@@ -8,6 +8,7 @@ import useUser from "../../hooks/currentUser/useUser";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  console.log(open);
   const [jahid, setJahid] = useState(false);
   const { logOut, user } = useContext(AuthContext);
   console.log(user);
