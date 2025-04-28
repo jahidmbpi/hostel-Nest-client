@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import backgound from "../../../../assets/banner/background.jpg";
-import Swal from "sweetalert2";
+import { useQuery } from "@tanstack/react-query";
 const UserProfile = () => {
   const { id } = useParams();
   const [userdata, setUserData] = useState({});
-  console.log(userdata);
+  const [history, setHistory] = useState(false);
+  console.log(history);
+  console.log("this is user data", userdata);
 
   const {
     name,
@@ -16,8 +18,9 @@ const UserProfile = () => {
     permanentAddress,
     currentClass,
     dateOfBirth,
+    _id,
   } = userdata;
-  console.log(name, email, image);
+  console.log(_id);
 
   useEffect(() => {
     axios
@@ -29,45 +32,18 @@ const UserProfile = () => {
         console.log(error);
       });
   }, [id]);
-  // এটা উপরে import করতে ভুলবে না
-
-  const handleEditProfile = async () => {
-    const { value: formValues } = await Swal.fire({
-      title: "Edit Profile",
-      html: `
-      <input id="swal-input1" class="swal2-input" value="${
-        name || ""
-      }" placeholder="Name">
-      <input id="swal-input2" class="swal2-input" value="${
-        email || ""
-      }" placeholder="Email">
-      <input id="swal-input3" class="swal2-input" value="${
-        presentAddess || ""
-      }" placeholder="Present Address">
-      <input id="swal-input4" class="swal2-input" value="${
-        permanentAddress || ""
-      }" placeholder="Permanent Address">
-      <input id="swal-input5" class="swal2-input" value="${
-        dateOfBirth || ""
-      }" placeholder="Date of Birth">
-      <input id="swal-input6" class="swal2-input" value="${
-        currentClass || ""
-      }" placeholder="Current Class">
-    `,
-      focusConfirm: false,
-      preConfirm: () => {
-        return {
-          name: document.getElementById("swal-input1").value,
-          email: document.getElementById("swal-input2").value,
-          presentAddess: document.getElementById("swal-input3").value,
-          permanentAddress: document.getElementById("swal-input4").value,
-          dateOfBirth: document.getElementById("swal-input5").value,
-          currentClass: document.getElementById("swal-input6").value,
-        };
-      },
-    });
-    console.log(formValues);
-  };
+  // this is user roompurches history
+  const { data: roomHistory } = useQuery({
+    queryKey: ["roomHistory", _id],
+    queryFn: async () => {
+      const res = await axios.get(
+        `http://localhost:5000/userRoomHistory/${_id}`
+      );
+      return res.data;
+    },
+    enabled: !!_id,
+  });
+  console.log("this is room history", roomHistory);
 
   return (
     <div className="">
@@ -96,7 +72,7 @@ const UserProfile = () => {
           <div className="mt-10 space-y-3">
             <div>
               <h2 className="text-2xl">about</h2>
-              <button onClick={handleEditProfile}>edit profile</button>
+              <button>edit profile</button>
             </div>
             <h2>name:{name}</h2>
             <p>email:{email}</p>
@@ -108,12 +84,22 @@ const UserProfile = () => {
         </div>
       </div>
       <div className="flex justify-evenly w-1/2 mt-5">
-        <button className="w-[80px] h-[40px] rounded-lg text-black bg-green-400">
-          Home
-        </button>
-        <button className="w-[80px] h-[40px] rounded-lg text-black bg-blue-400">
+        <Link to="/">
+          <button className="w-[80px] h-[40px] rounded-lg text-black bg-green-400">
+            Home
+          </button>
+        </Link>
+        <button
+          onClick={() => setHistory(!history)}
+          className="w-[80px] h-[40px] rounded-lg text-black bg-blue-400"
+        >
           histroy
         </button>
+      </div>
+      <div className={history ? "block" : "hidden"}>
+        <div>
+          <h2>this sis room details </h2>
+        </div>
       </div>
     </div>
   );
